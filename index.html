@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<style>
+    input{
+        outline: none;
+    }
+</style>
+<body>
+    <table class="table table-bordered">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td><button>删除</button></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td><button>删除</button></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td><button>删除</button></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td><button>删除</button></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td><button>删除</button></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td><button>删除</button></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td><button>删除</button></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td><button>删除</button></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td><button>删除</button></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td><button>删除</button></td>
+        </tr>
+    </table>
+    <button id="button1">添加</button>
+    <!--<button id="button2">删除</button>-->
+</body>
+</html>
+<script>
+    function sheet() {
+        let button=document.querySelectorAll("td button");
+        let table=document.querySelector("tbody");
+        let items=document.querySelectorAll("td");
+        let button1=document.querySelector("#button1");
+        items.forEach(function (v) {
+            v.ondblclick = function () {
+                let input = document.createElement("input");
+                input.value = v.innerHTML;
+                v.innerHTML = "";
+                v.appendChild(input);
+                input.focus();
+                input.onblur = function () {
+                    v.innerHTML = input.value;
+                }
+            }
+        });
+        button.forEach(function (v) {
+            v.onclick = function (event) {
+                if (event.target.innerHTML="删除") {
+                    let tr = v.parentNode.parentNode;
+                    tr.parentNode.removeChild(tr);
+                }
+            }
+        });
+        button1.onclick = function () {
+            let tr = document.createElement("tr");
+            tr.innerHTML="<td>1</td>\n" +
+                "            <td>2</td>\n" +
+                "            <td>3</td>\n" +
+                "            <td>4</td>\n" +
+                "            <td>5</td>\n" +
+                "            <td>6</td>\n" +
+                "            <td>7</td>\n" +
+                "            <td>8</td>\n" +
+                "            <td>9</td>\n" +
+                "            <td><button>删除</button></td>";
+            table.appendChild(tr);
+            sheet();
+        }
+
+    }
+    sheet();
+
+</script>
